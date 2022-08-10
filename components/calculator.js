@@ -1,9 +1,16 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { StyleSheet, View, Text, Button } from "react-native";
 import Svg, { Ellipse } from "react-native-svg";
-import onClick from "../calculator-logic";
+import calculator, { handleNumber, handleEqual, initialState } from "../calculator-logic";
 
 function Calculator(props) {
+  const [calcState, setCalcState] = useState(initialState);
+
+  const handleTap = (type, value) => {
+    setCalcState(calcState => calculator(type, value, calcState));
+    console.log(value);
+    console.log('calcState', calcState);
+  };
   return (
     <View style={styles.container}>
       <View style={styles.rectRow}>
@@ -60,13 +67,17 @@ function Calculator(props) {
       <View style={styles.rect5Row}>
         <View style={styles.rect5}>
         <Button
-        title="1"
-        color="#f194ff"
-        onPress={onClick}
+         title="1"
+         color="#f194ff"
+         onPress={() => {handleTap('number', 1)}}
         />
         </View>
         <View style={styles.rect6}>
-          <Text style={styles.loremIpsum2}>2</Text>
+        <Button
+        title="2"
+        color="#f194ff"
+        onPress={() => {handleTap('number', 2)}}
+        />
         </View>
         <View style={styles.rect7}>
           <Text style={styles.loremIpsum3}>3</Text>
@@ -141,7 +152,7 @@ const styles = StyleSheet.create({
     marginTop: 2
   },
   clear: {
-    fontFamily: "roboto-regular",
+    // fontFamily: "arial",
     color: "#121212",
     marginTop: 24,
     marginLeft: 15
@@ -158,7 +169,7 @@ const styles = StyleSheet.create({
     top: 0,
     left: 22,
     position: "absolute",
-    fontFamily: "roboto-regular",
+    // fontFamily: "arial",
     color: "#121212",
     fontSize: 59
   },
@@ -175,7 +186,7 @@ const styles = StyleSheet.create({
     marginTop: 2
   },
   loremIpsum14: {
-    fontFamily: "roboto-regular",
+    // fontFamily: "arial",
     color: "#121212",
     marginTop: 24,
     marginLeft: 27
@@ -191,7 +202,7 @@ const styles = StyleSheet.create({
     top: 24,
     left: 25,
     position: "absolute",
-    fontFamily: "roboto-regular",
+    // fontFamily: "arial",
     color: "#121212"
   },
   ellipseStack: {
@@ -213,7 +224,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#E6E6E6"
   },
   loremIpsum7: {
-    fontFamily: "roboto-regular",
+    // fontFamily: "arial",
     color: "#121212",
     marginTop: 26,
     marginLeft: 27
@@ -225,7 +236,7 @@ const styles = StyleSheet.create({
     marginLeft: 25
   },
   loremIpsum8: {
-    fontFamily: "roboto-regular",
+    // fontFamily: "arial",
     color: "#121212",
     marginTop: 26,
     marginLeft: 24
@@ -237,7 +248,7 @@ const styles = StyleSheet.create({
     marginLeft: 25
   },
   loremIpsum9: {
-    fontFamily: "roboto-regular",
+    // fontFamily: "arial",
     color: "#121212",
     marginTop: 26,
     marginLeft: 25
@@ -253,7 +264,7 @@ const styles = StyleSheet.create({
     top: 18,
     left: 26,
     position: "absolute",
-    fontFamily: "roboto-regular",
+    // fontFamily: "arial",
     color: "#121212",
     fontSize: 24
   },
@@ -275,7 +286,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#E6E6E6"
   },
   loremIpsum: {
-    fontFamily: "roboto-regular",
+    // fontFamily: "arial",
     color: "#121212",
     marginTop: 24,
     marginLeft: 27
@@ -287,7 +298,7 @@ const styles = StyleSheet.create({
     marginLeft: 25
   },
   loremIpsum2: {
-    fontFamily: "roboto-regular",
+    // fontFamily: "arial",
     color: "#121212",
     marginTop: 24,
     marginLeft: 24
@@ -299,7 +310,7 @@ const styles = StyleSheet.create({
     marginLeft: 25
   },
   loremIpsum3: {
-    fontFamily: "roboto-regular",
+    // fontFamily: "arial",
     color: "#121212",
     marginTop: 24,
     marginLeft: 29
@@ -315,7 +326,7 @@ const styles = StyleSheet.create({
     top: 24,
     left: 25,
     position: "absolute",
-    fontFamily: "roboto-regular",
+    // fontFamily: "arial",
     color: "#121212"
   },
   ellipse2Stack: {
@@ -336,7 +347,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#E6E6E6"
   },
   loremIpsum4: {
-    fontFamily: "roboto-regular",
+    // fontFamily: "arial",
     color: "#121212",
     marginTop: 27,
     marginLeft: 27
@@ -348,7 +359,7 @@ const styles = StyleSheet.create({
     marginLeft: 25
   },
   loremIpsum5: {
-    fontFamily: "roboto-regular",
+    // fontFamily: "arial",
     color: "#121212",
     marginTop: 27,
     marginLeft: 24
@@ -360,7 +371,7 @@ const styles = StyleSheet.create({
     marginLeft: 25
   },
   loremIpsum6: {
-    fontFamily: "roboto-regular",
+    // fontFamily: "arial",
     color: "#121212",
     marginTop: 27,
     marginLeft: 25
@@ -376,7 +387,7 @@ const styles = StyleSheet.create({
     top: 27,
     left: 25,
     position: "absolute",
-    fontFamily: "roboto-regular",
+    // fontFamily: "arial",
     color: "#121212"
   },
   ellipse3Stack: {
@@ -402,7 +413,7 @@ const styles = StyleSheet.create({
     top: 18,
     left: 32,
     position: "absolute",
-    fontFamily: "roboto-regular",
+    // fontFamily: "arial",
     color: "#121212",
     fontSize: 43
   },
