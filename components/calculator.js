@@ -1,43 +1,49 @@
 import React, { Component, useState } from "react";
 import { StyleSheet, View, Text, Button } from "react-native";
 import Svg, { Ellipse } from "react-native-svg";
+import { SafeAreaView } from "react-native-web";
 import calculator, { handleNumber, handleEqual, initialState } from "../calculator-logic";
+
 
 function Calculator(props) {
   const [calcState, setCalcState] = useState(initialState);
-
   const handleTap = (type, value) => {
     setCalcState(calcState => calculator(type, value, calcState));
     console.log(value);
     console.log('calcState', calcState);
   };
   return (
-    <View style={styles.container}>
-      <View style={styles.rectRow}>
-        <View style={styles.rect}>
+    <SafeAreaView>
+    <View style={calcStyles.container}>
+       <Text style={calcStyles.value}>
+            {parseFloat(calcState.currentValue).toLocaleString()}
+          </Text>
+      <View style={calcStyles.rectRow}>
+        <View style={calcStyles.rect}>
         <Button
          title="Clear"
          color="#f194ff"
          onPress={() => {handleTap('clear')}}
+         class='test-class'
         />
         </View>
-        <View style={styles.rect14Stack}>
-          <View style={styles.rect14}></View>
+        <View style={calcStyles.rect14Stack}>
+          <View style={calcStyles.rect14}></View>
           <Button
          title="."
          color="#f194ff"
-         onPress={() => {handleTap('decimal')}}
+         onPress={() => {handleTap('number', '.')}}
         />
         </View>
-        <View style={styles.rect13}>
+        <View style={calcStyles.rect13}>
         <Button
          title="0"
          color="#f194ff"
          onPress={() => {handleTap('number', 0)}}
         />
         </View>
-        <View style={styles.ellipseStack}>
-          <Svg viewBox="0 0 59.18 64.03" style={styles.ellipse}>
+        <View style={calcStyles.ellipseStack}>
+          <Svg viewBox="0 0 59.18 64.03" style={calcStyles.ellipse}>
             <Ellipse
               stroke="rgba(230, 230, 230,1)"
               strokeWidth={0}
@@ -51,34 +57,34 @@ function Calculator(props) {
           <Button
          title="/"
          color="#f194ff"
-         onPress={() => {handleTap('operator')}}
+         onPress={() => {handleTap('operator', '/')}}
         />
         </View>
       </View>
-      <View style={styles.rect8Row}>
-        <View style={styles.rect8}>
+      <View style={calcStyles.rect8Row}>
+        <View style={calcStyles.rect8}>
         <Button
          title="7"
          color="#f194ff"
          onPress={() => {handleTap('number', 7)}}
         />
         </View>
-        <View style={styles.rect4}>
+        <View style={calcStyles.rect4}>
           <Button
          title="8"
          color="#f194ff"
          onPress={() => {handleTap('number', 8)}}
         />
         </View>
-        <View style={styles.rect12}>
+        <View style={calcStyles.rect12}>
         <Button
          title="9"
          color="#f194ff"
          onPress={() => {handleTap('number', 9)}}
         />
         </View>
-        <View style={styles.ellipse4Stack}>
-          <Svg viewBox="0 0 59.18 64.03" style={styles.ellipse4}>
+        <View style={calcStyles.ellipse4Stack}>
+          <Svg viewBox="0 0 59.18 64.03" style={calcStyles.ellipse4}>
             <Ellipse
               stroke="rgba(230, 230, 230,1)"
               strokeWidth={0}
@@ -96,30 +102,30 @@ function Calculator(props) {
         />
         </View>
       </View>
-      <View style={styles.rect5Row}>
-        <View style={styles.rect5}>
+      <View style={calcStyles.rect5Row}>
+        <View style={calcStyles.rect5}>
         <Button
          title="1"
          color="#f194ff"
          onPress={() => {handleTap('number', 1)}}
         />
         </View>
-        <View style={styles.rect6}>
+        <View style={calcStyles.rect6}>
         <Button
         title="2"
         color="#f194ff"
         onPress={() => {handleTap('number', 2)}}
         />
         </View>
-        <View style={styles.rect7}>
+        <View style={calcStyles.rect7}>
         <Button
          title="3"
          color="#f194ff"
          onPress={() => {handleTap('number', 3)}}
         />
         </View>
-        <View style={styles.ellipse2Stack}>
-          <Svg viewBox="0 0 59.18 64.03" style={styles.ellipse2}>
+        <View style={calcStyles.ellipse2Stack}>
+          <Svg viewBox="0 0 59.18 64.03" style={calcStyles.ellipse2}>
             <Ellipse
               stroke="rgba(230, 230, 230,1)"
               strokeWidth={0}
@@ -133,34 +139,34 @@ function Calculator(props) {
           <Button
          title="*"
          color="#f194ff"
-         onPress={() => {handleTap('operator')}}
+         onPress={() => {handleTap('operator', '*')}}
         />
         </View>
       </View>
-      <View style={styles.rect9Row}>
-        <View style={styles.rect9}>
+      <View style={calcStyles.rect9Row}>
+        <View style={calcStyles.rect9}>
         <Button
          title="4"
          color="#f194ff"
          onPress={() => {handleTap('number', 4)}}
         />
         </View>
-        <View style={styles.rect10}>
+        <View style={calcStyles.rect10}>
         <Button
          title="5"
          color="#f194ff"
          onPress={() => {handleTap('number', 5)}}
         />
         </View>
-        <View style={styles.rect11}>
+        <View style={calcStyles.rect11}>
         <Button
          title="6"
          color="#f194ff"
          onPress={() => {handleTap('number', 6)}}
         />
         </View>
-        <View style={styles.ellipse3Stack}>
-          <Svg viewBox="0 0 59.18 64.03" style={styles.ellipse3}>
+        <View style={calcStyles.ellipse3Stack}>
+          <Svg viewBox="0 0 59.18 64.03" style={calcStyles.ellipse3}>
             <Ellipse
               stroke="rgba(230, 230, 230,1)"
               strokeWidth={0}
@@ -174,12 +180,12 @@ function Calculator(props) {
           <Button
          title="+"
          color="#f194ff"
-         onPress={() => {handleTap('operator')}}
+         onPress={() => {handleTap('operator', '+')}}
         />
         </View>
       </View>
-      <View style={styles.ellipse5Stack}>
-        <Svg viewBox="0 0 86.27 88.29" style={styles.ellipse5}>
+      <View style={calcStyles.ellipse5Stack}>
+        <Svg viewBox="0 0 86.27 88.29" style={calcStyles.ellipse5}>
           <Ellipse
             stroke="rgba(230, 230, 230,1)"
             strokeWidth={0}
@@ -193,15 +199,16 @@ function Calculator(props) {
         <Button
          title="="
          color="#f194ff"
-         onPress={() => {handleTap('equal', '=')}}
+         onPress={() => {handleTap('equal')}}
         />
       </View>
-      <View style={styles.rect15}></View>
+      <View style={calcStyles.rect15}></View>
     </View>
+    </SafeAreaView>
   );
 }
 
-const styles = StyleSheet.create({
+const calcStyles = StyleSheet.create({
   container: {
     flex: 1
   },
