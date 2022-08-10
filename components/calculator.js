@@ -15,14 +15,26 @@ function Calculator(props) {
     <View style={styles.container}>
       <View style={styles.rectRow}>
         <View style={styles.rect}>
-          <Text style={styles.clear}>Clear</Text>
+        <Button
+         title="Clear"
+         color="#f194ff"
+         onPress={() => {handleTap('clear')}}
+        />
         </View>
         <View style={styles.rect14Stack}>
           <View style={styles.rect14}></View>
-          <Text style={styles.loremIpsum15}>.</Text>
+          <Button
+         title="."
+         color="#f194ff"
+         onPress={() => {handleTap('decimal')}}
+        />
         </View>
         <View style={styles.rect13}>
-          <Text style={styles.loremIpsum14}>0</Text>
+        <Button
+         title="0"
+         color="#f194ff"
+         onPress={() => {handleTap('number', 0)}}
+        />
         </View>
         <View style={styles.ellipseStack}>
           <Svg viewBox="0 0 59.18 64.03" style={styles.ellipse}>
@@ -36,18 +48,34 @@ function Calculator(props) {
               ry={32}
             ></Ellipse>
           </Svg>
-          <Text style={styles.loremIpsum10}>/</Text>
+          <Button
+         title="/"
+         color="#f194ff"
+         onPress={() => {handleTap('operator')}}
+        />
         </View>
       </View>
       <View style={styles.rect8Row}>
         <View style={styles.rect8}>
-          <Text style={styles.loremIpsum7}>7</Text>
+        <Button
+         title="7"
+         color="#f194ff"
+         onPress={() => {handleTap('number', 7)}}
+        />
         </View>
         <View style={styles.rect4}>
-          <Text style={styles.loremIpsum8}>8</Text>
+          <Button
+         title="8"
+         color="#f194ff"
+         onPress={() => {handleTap('number', 8)}}
+        />
         </View>
         <View style={styles.rect12}>
-          <Text style={styles.loremIpsum9}>9</Text>
+        <Button
+         title="9"
+         color="#f194ff"
+         onPress={() => {handleTap('number', 9)}}
+        />
         </View>
         <View style={styles.ellipse4Stack}>
           <Svg viewBox="0 0 59.18 64.03" style={styles.ellipse4}>
@@ -61,7 +89,11 @@ function Calculator(props) {
               ry={32}
             ></Ellipse>
           </Svg>
-          <Text style={styles.loremIpsum12}>-</Text>
+          <Button
+         title="-"
+         color="#f194ff"
+         onPress={() => {handleTap('operator', '-')}}
+        />
         </View>
       </View>
       <View style={styles.rect5Row}>
@@ -80,7 +112,11 @@ function Calculator(props) {
         />
         </View>
         <View style={styles.rect7}>
-          <Text style={styles.loremIpsum3}>3</Text>
+        <Button
+         title="3"
+         color="#f194ff"
+         onPress={() => {handleTap('number', 3)}}
+        />
         </View>
         <View style={styles.ellipse2Stack}>
           <Svg viewBox="0 0 59.18 64.03" style={styles.ellipse2}>
@@ -94,18 +130,34 @@ function Calculator(props) {
               ry={32}
             ></Ellipse>
           </Svg>
-          <Text style={styles.x}>x</Text>
+          <Button
+         title="*"
+         color="#f194ff"
+         onPress={() => {handleTap('operator')}}
+        />
         </View>
       </View>
       <View style={styles.rect9Row}>
         <View style={styles.rect9}>
-          <Text style={styles.loremIpsum4}>4</Text>
+        <Button
+         title="4"
+         color="#f194ff"
+         onPress={() => {handleTap('number', 4)}}
+        />
         </View>
         <View style={styles.rect10}>
-          <Text style={styles.loremIpsum5}>5</Text>
+        <Button
+         title="5"
+         color="#f194ff"
+         onPress={() => {handleTap('number', 5)}}
+        />
         </View>
         <View style={styles.rect11}>
-          <Text style={styles.loremIpsum6}>6</Text>
+        <Button
+         title="6"
+         color="#f194ff"
+         onPress={() => {handleTap('number', 6)}}
+        />
         </View>
         <View style={styles.ellipse3Stack}>
           <Svg viewBox="0 0 59.18 64.03" style={styles.ellipse3}>
@@ -119,7 +171,11 @@ function Calculator(props) {
               ry={32}
             ></Ellipse>
           </Svg>
-          <Text style={styles.loremIpsum11}>+</Text>
+          <Button
+         title="+"
+         color="#f194ff"
+         onPress={() => {handleTap('operator')}}
+        />
         </View>
       </View>
       <View style={styles.ellipse5Stack}>
@@ -134,7 +190,11 @@ function Calculator(props) {
             ry={44}
           ></Ellipse>
         </Svg>
-        <Text style={styles.loremIpsum13}>=</Text>
+        <Button
+         title="="
+         color="#f194ff"
+         onPress={() => {handleTap('equal', '=')}}
+        />
       </View>
       <View style={styles.rect15}></View>
     </View>
@@ -152,7 +212,6 @@ const styles = StyleSheet.create({
     marginTop: 2
   },
   clear: {
-    // fontFamily: "arial",
     color: "#121212",
     marginTop: 24,
     marginLeft: 15
@@ -169,7 +228,6 @@ const styles = StyleSheet.create({
     top: 0,
     left: 22,
     position: "absolute",
-    // fontFamily: "arial",
     color: "#121212",
     fontSize: 59
   },
@@ -186,7 +244,6 @@ const styles = StyleSheet.create({
     marginTop: 2
   },
   loremIpsum14: {
-    // fontFamily: "arial",
     color: "#121212",
     marginTop: 24,
     marginLeft: 27
@@ -202,7 +259,6 @@ const styles = StyleSheet.create({
     top: 24,
     left: 25,
     position: "absolute",
-    // fontFamily: "arial",
     color: "#121212"
   },
   ellipseStack: {
@@ -224,7 +280,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#E6E6E6"
   },
   loremIpsum7: {
-    // fontFamily: "arial",
     color: "#121212",
     marginTop: 26,
     marginLeft: 27
@@ -236,7 +291,6 @@ const styles = StyleSheet.create({
     marginLeft: 25
   },
   loremIpsum8: {
-    // fontFamily: "arial",
     color: "#121212",
     marginTop: 26,
     marginLeft: 24
@@ -248,7 +302,6 @@ const styles = StyleSheet.create({
     marginLeft: 25
   },
   loremIpsum9: {
-    // fontFamily: "arial",
     color: "#121212",
     marginTop: 26,
     marginLeft: 25
@@ -264,7 +317,6 @@ const styles = StyleSheet.create({
     top: 18,
     left: 26,
     position: "absolute",
-    // fontFamily: "arial",
     color: "#121212",
     fontSize: 24
   },
@@ -286,7 +338,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#E6E6E6"
   },
   loremIpsum: {
-    // fontFamily: "arial",
     color: "#121212",
     marginTop: 24,
     marginLeft: 27
@@ -298,7 +349,6 @@ const styles = StyleSheet.create({
     marginLeft: 25
   },
   loremIpsum2: {
-    // fontFamily: "arial",
     color: "#121212",
     marginTop: 24,
     marginLeft: 24
@@ -310,7 +360,6 @@ const styles = StyleSheet.create({
     marginLeft: 25
   },
   loremIpsum3: {
-    // fontFamily: "arial",
     color: "#121212",
     marginTop: 24,
     marginLeft: 29
@@ -326,7 +375,6 @@ const styles = StyleSheet.create({
     top: 24,
     left: 25,
     position: "absolute",
-    // fontFamily: "arial",
     color: "#121212"
   },
   ellipse2Stack: {
@@ -347,7 +395,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#E6E6E6"
   },
   loremIpsum4: {
-    // fontFamily: "arial",
     color: "#121212",
     marginTop: 27,
     marginLeft: 27
@@ -359,7 +406,6 @@ const styles = StyleSheet.create({
     marginLeft: 25
   },
   loremIpsum5: {
-    // fontFamily: "arial",
     color: "#121212",
     marginTop: 27,
     marginLeft: 24
@@ -371,7 +417,6 @@ const styles = StyleSheet.create({
     marginLeft: 25
   },
   loremIpsum6: {
-    // fontFamily: "arial",
     color: "#121212",
     marginTop: 27,
     marginLeft: 25
@@ -387,7 +432,6 @@ const styles = StyleSheet.create({
     top: 27,
     left: 25,
     position: "absolute",
-    // fontFamily: "arial",
     color: "#121212"
   },
   ellipse3Stack: {
@@ -413,7 +457,6 @@ const styles = StyleSheet.create({
     top: 18,
     left: 32,
     position: "absolute",
-    // fontFamily: "arial",
     color: "#121212",
     fontSize: 43
   },

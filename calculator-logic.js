@@ -78,6 +78,10 @@ const calculator = (type, value, state) => {
       return {
         currentValue: `${parseFloat(state.currentValue) * 0.01}`
       };
+    case "decimal":
+      return {
+        currentValue: state.currentValue + '.'
+      }
     default:
       return state;
   }
