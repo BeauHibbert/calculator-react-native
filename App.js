@@ -4,13 +4,13 @@ import Calculator from './components/calculator';
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <View style={style.container}>
       <Calculator/>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
+const style = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',

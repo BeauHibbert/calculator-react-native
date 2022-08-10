@@ -1,53 +1,47 @@
 import React, { Component, useState } from "react";
 import { StyleSheet, View, Text, Button } from "react-native";
 import Svg, { Ellipse } from "react-native-svg";
-import { SafeAreaView } from "react-native-web";
 import calculator, { handleNumber, handleEqual, initialState } from "../calculator-logic";
-
 
 function Calculator(props) {
   const [calcState, setCalcState] = useState(initialState);
+
   const handleTap = (type, value) => {
     setCalcState(calcState => calculator(type, value, calcState));
     console.log(value);
     console.log('calcState', calcState);
   };
   return (
-    <SafeAreaView>
-    <View style={calcStyles.container}>
-       <Text style={calcStyles.value}>
-            {parseFloat(calcState.currentValue).toLocaleString()}
-          </Text>
-      <View style={calcStyles.rectRow}>
-        <View style={calcStyles.rect}>
+    <View style={styles.container}>
+      <View style={styles.rectRow}>
+        <View style={styles.rect}>
         <Button
          title="Clear"
          color="#f194ff"
          onPress={() => {handleTap('clear')}}
-         class='test-class'
         />
         </View>
-        <View style={calcStyles.rect14Stack}>
-          <View style={calcStyles.rect14}></View>
+        <View style={styles.rect14Stack}>
+          <View style={styles.rect14}></View>
           <Button
          title="."
          color="#f194ff"
-         onPress={() => {handleTap('number', '.')}}
+         onPress={() => {handleTap('decimal')}}
         />
         </View>
-        <View style={calcStyles.rect13}>
+        <View style={styles.rect13}>
         <Button
          title="0"
          color="#f194ff"
          onPress={() => {handleTap('number', 0)}}
         />
         </View>
-        <View style={calcStyles.ellipseStack}>
-          <Svg viewBox="0 0 59.18 64.03" style={calcStyles.ellipse}>
+        <View style={styles.ellipseStack}>
+          <Svg viewBox="0 0 59.18 64.03" style={styles.ellipse}>
             <Ellipse
-              stroke="rgba(230, 230, 230,1)"
+              stroke="rgba(50, 168, 166, 1)"
               strokeWidth={0}
-              fill="rgba(230, 230, 230,1)"
+              fill="rgba(50, 168, 166, 1)"
               cx={30}
               cy={32}
               rx={30}
@@ -61,34 +55,34 @@ function Calculator(props) {
         />
         </View>
       </View>
-      <View style={calcStyles.rect8Row}>
-        <View style={calcStyles.rect8}>
+      <View style={styles.rect8Row}>
+        <View style={styles.rect8}>
         <Button
          title="7"
          color="#f194ff"
          onPress={() => {handleTap('number', 7)}}
         />
         </View>
-        <View style={calcStyles.rect4}>
+        <View style={styles.rect4}>
           <Button
          title="8"
          color="#f194ff"
          onPress={() => {handleTap('number', 8)}}
         />
         </View>
-        <View style={calcStyles.rect12}>
+        <View style={styles.rect12}>
         <Button
          title="9"
          color="#f194ff"
          onPress={() => {handleTap('number', 9)}}
         />
         </View>
-        <View style={calcStyles.ellipse4Stack}>
-          <Svg viewBox="0 0 59.18 64.03" style={calcStyles.ellipse4}>
+        <View style={styles.ellipse4Stack}>
+          <Svg viewBox="0 0 59.18 64.03" style={styles.ellipse4}>
             <Ellipse
-              stroke="rgba(230, 230, 230,1)"
+              stroke="rgba(50, 168, 166, 1)"
               strokeWidth={0}
-              fill="rgba(230, 230, 230,1)"
+              fill="rgba(50, 168, 166, 1)"
               cx={30}
               cy={32}
               rx={30}
@@ -102,34 +96,34 @@ function Calculator(props) {
         />
         </View>
       </View>
-      <View style={calcStyles.rect5Row}>
-        <View style={calcStyles.rect5}>
+      <View style={styles.rect5Row}>
+        <View style={styles.rect5}>
         <Button
          title="1"
          color="#f194ff"
          onPress={() => {handleTap('number', 1)}}
         />
         </View>
-        <View style={calcStyles.rect6}>
+        <View style={styles.rect6}>
         <Button
         title="2"
         color="#f194ff"
         onPress={() => {handleTap('number', 2)}}
         />
         </View>
-        <View style={calcStyles.rect7}>
+        <View style={styles.rect7}>
         <Button
          title="3"
          color="#f194ff"
          onPress={() => {handleTap('number', 3)}}
         />
         </View>
-        <View style={calcStyles.ellipse2Stack}>
-          <Svg viewBox="0 0 59.18 64.03" style={calcStyles.ellipse2}>
+        <View style={styles.ellipse2Stack}>
+          <Svg viewBox="0 0 59.18 64.03" style={styles.ellipse2}>
             <Ellipse
-              stroke="rgba(230, 230, 230,1)"
+              stroke="rgba(50, 168, 166, 1)"
               strokeWidth={0}
-              fill="rgba(230, 230, 230,1)"
+              fill="rgba(50, 168, 166, 1)"
               cx={30}
               cy={32}
               rx={30}
@@ -143,34 +137,34 @@ function Calculator(props) {
         />
         </View>
       </View>
-      <View style={calcStyles.rect9Row}>
-        <View style={calcStyles.rect9}>
+      <View style={styles.rect9Row}>
+        <View style={styles.rect9}>
         <Button
          title="4"
          color="#f194ff"
          onPress={() => {handleTap('number', 4)}}
         />
         </View>
-        <View style={calcStyles.rect10}>
+        <View style={styles.rect10}>
         <Button
          title="5"
          color="#f194ff"
          onPress={() => {handleTap('number', 5)}}
         />
         </View>
-        <View style={calcStyles.rect11}>
+        <View style={styles.rect11}>
         <Button
          title="6"
          color="#f194ff"
          onPress={() => {handleTap('number', 6)}}
         />
         </View>
-        <View style={calcStyles.ellipse3Stack}>
-          <Svg viewBox="0 0 59.18 64.03" style={calcStyles.ellipse3}>
+        <View style={styles.ellipse3Stack}>
+          <Svg viewBox="0 0 59.18 64.03" style={styles.ellipse3}>
             <Ellipse
-              stroke="rgba(230, 230, 230,1)"
+              stroke="rgba(50, 168, 166, 1)"
               strokeWidth={0}
-              fill="rgba(230, 230, 230,1)"
+              fill="rgba(50, 168, 166, 1)"
               cx={30}
               cy={32}
               rx={30}
@@ -184,12 +178,12 @@ function Calculator(props) {
         />
         </View>
       </View>
-      <View style={calcStyles.ellipse5Stack}>
-        <Svg viewBox="0 0 86.27 88.29" style={calcStyles.ellipse5}>
+      <View style={styles.ellipse5Stack}>
+        <Svg viewBox="0 0 86.27 88.29" style={styles.ellipse5}>
           <Ellipse
-            stroke="rgba(230, 230, 230,1)"
+            stroke="rgba(50, 168, 166, 1)"
             strokeWidth={0}
-            fill="rgba(230, 230, 230,1)"
+            fill="rgba(50, 168, 166, 1)"
             cx={43}
             cy={44}
             rx={43}
@@ -199,27 +193,27 @@ function Calculator(props) {
         <Button
          title="="
          color="#f194ff"
-         onPress={() => {handleTap('equal')}}
+         onPress={() => {handleTap('equal', null)}}
         />
       </View>
-      <View style={calcStyles.rect15}></View>
+      <View style={styles.rect15}></View>
     </View>
-    </SafeAreaView>
   );
 }
 
-const calcStyles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: '#77dee6'
   },
   rect: {
     width: 62,
     height: 64,
-    backgroundColor: "#E6E6E6",
+    backgroundColor: "#327da8",
     marginTop: 2
   },
   clear: {
-    color: "#121212",
+    color: "#327da8",
     marginTop: 24,
     marginLeft: 15
   },
@@ -229,7 +223,7 @@ const calcStyles = StyleSheet.create({
     width: 62,
     height: 64,
     position: "absolute",
-    backgroundColor: "#E6E6E6"
+    backgroundColor: "#327da8"
   },
   loremIpsum15: {
     top: 0,
@@ -246,7 +240,7 @@ const calcStyles = StyleSheet.create({
   rect13: {
     width: 62,
     height: 64,
-    backgroundColor: "#E6E6E6",
+    backgroundColor: "#327da8",
     marginLeft: 26,
     marginTop: 2
   },
@@ -284,7 +278,7 @@ const calcStyles = StyleSheet.create({
   rect8: {
     width: 62,
     height: 64,
-    backgroundColor: "#E6E6E6"
+    backgroundColor: "#327da8"
   },
   loremIpsum7: {
     color: "#121212",
@@ -294,7 +288,7 @@ const calcStyles = StyleSheet.create({
   rect4: {
     width: 62,
     height: 64,
-    backgroundColor: "#E6E6E6",
+    backgroundColor: "#327da8",
     marginLeft: 25
   },
   loremIpsum8: {
@@ -305,7 +299,7 @@ const calcStyles = StyleSheet.create({
   rect12: {
     width: 62,
     height: 64,
-    backgroundColor: "#E6E6E6",
+    backgroundColor: "#327da8",
     marginLeft: 25
   },
   loremIpsum9: {
@@ -342,7 +336,7 @@ const calcStyles = StyleSheet.create({
   rect5: {
     width: 62,
     height: 64,
-    backgroundColor: "#E6E6E6"
+    backgroundColor: "#327da8"
   },
   loremIpsum: {
     color: "#121212",
@@ -352,7 +346,7 @@ const calcStyles = StyleSheet.create({
   rect6: {
     width: 62,
     height: 64,
-    backgroundColor: "#E6E6E6",
+    backgroundColor: "#327da8",
     marginLeft: 25
   },
   loremIpsum2: {
@@ -363,7 +357,7 @@ const calcStyles = StyleSheet.create({
   rect7: {
     width: 62,
     height: 64,
-    backgroundColor: "#E6E6E6",
+    backgroundColor: "#327da8",
     marginLeft: 25
   },
   loremIpsum3: {
@@ -399,7 +393,7 @@ const calcStyles = StyleSheet.create({
   rect9: {
     width: 62,
     height: 64,
-    backgroundColor: "#E6E6E6"
+    backgroundColor: "#327da8"
   },
   loremIpsum4: {
     color: "#121212",
@@ -409,7 +403,7 @@ const calcStyles = StyleSheet.create({
   rect10: {
     width: 62,
     height: 64,
-    backgroundColor: "#E6E6E6",
+    backgroundColor: "#327da8",
     marginLeft: 25
   },
   loremIpsum5: {
@@ -420,7 +414,7 @@ const calcStyles = StyleSheet.create({
   rect11: {
     width: 62,
     height: 64,
-    backgroundColor: "#E6E6E6",
+    backgroundColor: "#327da8",
     marginLeft: 25
   },
   loremIpsum6: {
@@ -476,7 +470,7 @@ const calcStyles = StyleSheet.create({
   rect15: {
     width: 293,
     height: 156,
-    backgroundColor: "#E6E6E6",
+    backgroundColor: "#327da8",
     marginTop: -652,
     marginLeft: 37
   }

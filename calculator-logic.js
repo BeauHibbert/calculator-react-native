@@ -16,7 +16,6 @@ export const handleNumber = (value, state) => {
 
 export const handleEqual = state => {
   const { currentValue, previousValue, operator } = state;
-  console.log('state inside handleEqual', state);
 
   const current = parseFloat(currentValue);
   const previous = parseFloat(previousValue);
@@ -79,6 +78,10 @@ const calculator = (type, value, state) => {
       return {
         currentValue: `${parseFloat(state.currentValue) * 0.01}`
       };
+    case "decimal":
+      return {
+        currentValue: state.currentValue + '.'
+      }
     default:
       return state;
   }
